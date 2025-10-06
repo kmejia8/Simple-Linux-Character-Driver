@@ -44,12 +44,12 @@ This creates the necessary files for the module to function.
 
 ### 2. Insert (load) the module
 ```bash
-sudo insmod new_char.ko
+sudo insmod new-char.ko
 ```
 
 View kernel log messages:
 ```bash
-dmesg | tail
+sudo dmesg | tail
 ```
 
 Example output:
@@ -57,23 +57,20 @@ Example output:
 Hello. new_char's major number = 240
 new char module has been loaded!
 ```
+- This is typically shown as the last lines of the log
 
 ### 3. Test the driver
 
 **Read from the device**
 ```bash
-cat /dev/new_char
-```
-
-Expected terminal output:
-```
-cat: /dev/new_char: No data available
+sudo cat /dev/new-char
 ```
 
 Check kernel logs:
 ```bash
 dmesg | tail
 ```
+Expected output:
 ```
 Driver opened.
 No more data to read.
@@ -82,13 +79,14 @@ Driver closed.
 
 **Write to the device**
 ```bash
-echo "hello" > /dev/new_char
+echo "hello" | sudo tee /dev/new-char
 ```
 
 Then check logs again:
 ```bash
-dmesg | tail
+sudo dmesg | tail
 ```
+Expected output:
 ```
 Driver opened.
 No more data to accept.
@@ -97,8 +95,8 @@ Driver closed.
 
 ### 4. Remove (unload) the module
 ```bash
-sudo rmmod new_char
-dmesg | tail
+sudo rmmod new-char
+sudo dmesg | tail
 ```
 
 Expected output:
