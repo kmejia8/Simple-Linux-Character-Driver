@@ -1,5 +1,6 @@
 /* Author: Karla Mejia
 Linux Character Device Driver
+This works on kernel version 6.8.0-85-generic
 
 This code is provided here solely for educational and portfolio purposes.  
 No permission is granted to copy, modify, or redistribute this code.  
@@ -97,7 +98,7 @@ static int __init new_char_init_module(void) {
                                 NULL, // will have no parent device
                                 devt, // associates with dev_t (device number)
                                 NULL, // no additional data
-                                "new_char" // name of the device
+                                "new-char" // name of the device
     );
 
     // does clean up if the device creation fails
