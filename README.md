@@ -68,7 +68,7 @@ sudo cat /dev/new-char
 
 Check kernel logs:
 ```bash
-dmesg | tail
+sudo dmesg | tail
 ```
 Expected output:
 ```
